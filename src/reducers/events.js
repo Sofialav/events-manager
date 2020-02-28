@@ -1,5 +1,5 @@
 const initialState = null;
-
+// eventS
 export default function eventsReducer(state = initialState, action) {
   switch (action.type) {
     case "EVENTS_FETCHED":
@@ -10,6 +10,9 @@ export default function eventsReducer(state = initialState, action) {
       } else {
         return action.event;
       }
+    case "EVENT_DELETED":
+      const result = state.filter(event => event.id !== action.id);
+      return result;
     default:
       return state;
   }

@@ -40,7 +40,6 @@ const eventFetched = event => ({
   type: EVENT_FETCHED,
   event
 });
-
 export const loadEvent = id => dispatch => {
   request
     .get(`${baseUrl}/events/${id}`)
@@ -48,4 +47,33 @@ export const loadEvent = id => dispatch => {
       dispatch(eventFetched(response.body));
     })
     .catch(console.error);
+};
+//delete single event
+export const EVENT_DELETED = "EVENT_DELETED";
+const eventDeleted = id => ({
+  type: EVENT_DELETED,
+  id
+});
+export const deleteEvent = id => dispatch => {
+  request
+    .delete(`${baseUrl}/events/${id}`)
+    .then(response => {
+      dispatch(eventDeleted(id));
+    })
+    .catch(console.error);
+};
+// update event
+export const EVENT_UPDATED = "EVENT_UPDATED";
+const eventUpdated = event => ({
+  type: EVENT_UPDATED,
+  event
+});
+
+export const updateEvent = (id, data) => dispatch => {
+  request
+    .put(`${baseUrl}/events/${id}`)
+    .send(data)
+    .then(res => {
+      dispatch(eventUpdated(res.body));
+    });
 };
