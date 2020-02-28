@@ -7,24 +7,27 @@ class EventForm extends Component {
         <form>
           <input
             type="text"
-            placeholder="NAME"
+            placeholder="name"
+            name="name"
             value={this.props.values.name}
             onChange={this.props.onChange}
           ></input>
           <input
             type="text"
-            placeholder="DATE"
+            placeholder="date"
+            name="date"
             value={this.props.values.date}
             onChange={this.props.onChange}
           ></input>
           <input
             type="text"
-            placeholder="DESCRIPTION"
+            placeholder="description"
+            name="description"
             value={this.props.values.description}
             onChange={this.props.onChange}
           ></input>
-          <button type="submit" onSubmit={this.props.onSubmit}>
-            Submit
+          <button type="submit" onClick={this.props.onSubmit}>
+            Add
           </button>
         </form>
       </div>

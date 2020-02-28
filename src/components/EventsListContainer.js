@@ -14,7 +14,7 @@ class EventsListContainer extends React.Component {
       return <div>Loading...</div>;
     }
     const displayEvents = this.props.events.map(event => {
-      return <EventsList events={event} />;
+      return <EventsList events={event} key={event.id} />;
     });
     return (
       <div>

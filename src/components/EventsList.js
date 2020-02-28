@@ -6,7 +6,7 @@ class EventsList extends Component {
   render() {
     return (
       <div>
-        <li key={this.props.events.id}>
+        <li key={this.props.events.key}>
           <Link to={`/events/${this.props.events.id}`}>
             {this.props.events.name}
           </Link>
